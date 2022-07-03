@@ -8,7 +8,9 @@ by](https://img.shields.io/badge/Keybase-Verified-brightgreen.svg)](https://keyb
 %](https://img.shields.io/badge/Signed_Commits-100%25-lightgrey.svg)
 [![R-CMD-check](https://github.com/hrbrmstr/weatherkit/workflows/R-CMD-check/badge.svg)](https://github.com/hrbrmstr/weatherkit/actions?query=workflow%3AR-CMD-check)
 [![Linux build
-Status](https://travis-ci.org/hrbrmstr/weatherkit.svg?branch=master)](https://travis-ci.org/hrbrmstr/weatherkit)  
+Status](https://travis-ci.org/hrbrmstr/weatherkit.svg?branch=master)](https://travis-ci.org/hrbrmstr/weatherkit)
+[![Coverage
+Status](https://codecov.io/gh/hrbrmstr/weatherkit/branch/master/graph/badge.svg)](https://codecov.io/gh/hrbrmstr/weatherkit)
 ![Minimal R
 Version](https://img.shields.io/badge/R%3E%3D-4.0.0-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
@@ -40,6 +42,7 @@ The following functions are implemented:
 ## Installation
 
 ``` r
+remotes::install_github("hrbrmstr/weatherkit")
 ```
 
 NOTE: To use the ‘remotes’ install options you will need to have the
@@ -76,37 +79,37 @@ wxkit_weather(43.2683199, -70.8635506) |>
 ##   ..$ name                  : chr "CurrentWeather"
 ##   ..$ metadata              :List of 8
 ##   .. ..$ attributionURL: chr "https://weather-data.apple.com/legal-attribution.html"
-##   .. ..$ expireTime    : chr "2022-07-03T13:06:43Z"
+##   .. ..$ expireTime    : chr "2022-07-03T13:11:51Z"
 ##   .. ..$ latitude      : num 43.3
 ##   .. ..$ longitude     : num -70.9
-##   .. ..$ readTime      : chr "2022-07-03T13:01:43Z"
+##   .. ..$ readTime      : chr "2022-07-03T13:06:51Z"
 ##   .. ..$ reportedTime  : chr "2022-07-03T10:38:13Z"
 ##   .. ..$ units         : chr "m"
 ##   .. ..$ version       : int 1
-##   ..$ asOf                  : chr "2022-07-03T13:01:43Z"
+##   ..$ asOf                  : chr "2022-07-03T13:06:51Z"
 ##   ..$ cloudCover            : num 0.93
 ##   ..$ conditionCode         : chr "Cloudy"
 ##   ..$ daylight              : logi TRUE
-##   ..$ humidity              : num 0.6
+##   ..$ humidity              : num 0.59
 ##   ..$ precipitationIntensity: num 0
 ##   ..$ pressure              : num 1014
 ##   ..$ pressureTrend         : chr "steady"
-##   ..$ temperature           : num 22
-##   ..$ temperatureApparent   : num 21.9
-##   ..$ temperatureDewPoint   : num 13.9
+##   ..$ temperature           : num 22.1
+##   ..$ temperatureApparent   : num 22.1
+##   ..$ temperatureDewPoint   : num 13.8
 ##   ..$ uvIndex               : int 3
-##   ..$ visibility            : num 34912
+##   ..$ visibility            : num 35106
 ##   ..$ windDirection         : int 274
-##   ..$ windGust              : num 25.3
-##   ..$ windSpeed             : num 10.3
+##   ..$ windGust              : num 25.7
+##   ..$ windSpeed             : num 10.6
 ##  $ forecastDaily   :List of 3
 ##   ..$ name    : chr "DailyForecast"
 ##   ..$ metadata:List of 8
 ##   .. ..$ attributionURL: chr "https://weather-data.apple.com/legal-attribution.html"
-##   .. ..$ expireTime    : chr "2022-07-03T14:01:43Z"
+##   .. ..$ expireTime    : chr "2022-07-03T14:06:51Z"
 ##   .. ..$ latitude      : num 43.3
 ##   .. ..$ longitude     : num -70.9
-##   .. ..$ readTime      : chr "2022-07-03T13:01:43Z"
+##   .. ..$ readTime      : chr "2022-07-03T13:06:51Z"
 ##   .. ..$ reportedTime  : chr "2022-07-03T10:38:13Z"
 ##   .. ..$ units         : chr "m"
 ##   .. ..$ version       : int 1
@@ -159,7 +162,7 @@ wxkit_weather(43.2683199, -70.8635506) |>
 ##   .. .. ..$ windDirection      : int [1:10] 316 299 233 334 198 15 5 220 252 NA
 ##   .. .. ..$ windSpeed          : num [1:10] 8.12 3.84 13.06 4.95 9 ...
 ##   .. ..$ restOfDayForecast  :'data.frame':   10 obs. of  11 variables:
-##   .. .. ..$ forecastStart      : chr [1:10] "2022-07-03T13:01:43Z" NA NA NA ...
+##   .. .. ..$ forecastStart      : chr [1:10] "2022-07-03T13:06:51Z" NA NA NA ...
 ##   .. .. ..$ forecastEnd        : chr [1:10] "2022-07-04T04:00:00Z" NA NA NA ...
 ##   .. .. ..$ cloudCover         : num [1:10] 0.28 NA NA NA NA NA NA NA NA NA
 ##   .. .. ..$ conditionCode      : chr [1:10] "MostlyClear" NA NA NA ...
@@ -174,10 +177,10 @@ wxkit_weather(43.2683199, -70.8635506) |>
 ##   ..$ name    : chr "HourlyForecast"
 ##   ..$ metadata:List of 8
 ##   .. ..$ attributionURL: chr "https://weather-data.apple.com/legal-attribution.html"
-##   .. ..$ expireTime    : chr "2022-07-03T14:01:43Z"
+##   .. ..$ expireTime    : chr "2022-07-03T14:06:51Z"
 ##   .. ..$ latitude      : num 43.3
 ##   .. ..$ longitude     : num -70.9
-##   .. ..$ readTime      : chr "2022-07-03T13:01:43Z"
+##   .. ..$ readTime      : chr "2022-07-03T13:06:51Z"
 ##   .. ..$ reportedTime  : chr "2022-07-03T10:38:13Z"
 ##   .. ..$ units         : chr "m"
 ##   .. ..$ version       : int 1
@@ -206,25 +209,25 @@ wxkit_weather(43.2683199, -70.8635506) |>
 ##   ..$ name         : chr "NextHourForecast"
 ##   ..$ metadata     :List of 9
 ##   .. ..$ attributionURL: chr "https://weather-data.apple.com/legal-attribution.html"
-##   .. ..$ expireTime    : chr "2022-07-03T15:01:44Z"
+##   .. ..$ expireTime    : chr "2022-07-03T15:06:51Z"
 ##   .. ..$ language      : chr "en-US"
 ##   .. ..$ latitude      : num 43.3
 ##   .. ..$ longitude     : num -70.9
 ##   .. ..$ providerName  : chr "US National Weather Service"
-##   .. ..$ readTime      : chr "2022-07-03T13:01:43Z"
+##   .. ..$ readTime      : chr "2022-07-03T13:06:51Z"
 ##   .. ..$ units         : chr "m"
 ##   .. ..$ version       : int 1
 ##   ..$ summary      :'data.frame':    1 obs. of  4 variables:
-##   .. ..$ startTime             : chr "2022-07-03T13:02:00Z"
+##   .. ..$ startTime             : chr "2022-07-03T13:07:00Z"
 ##   .. ..$ condition             : chr "clear"
 ##   .. ..$ precipitationChance   : num 0
 ##   .. ..$ precipitationIntensity: num 0
-##   ..$ forecastStart: chr "2022-07-03T13:02:00Z"
-##   ..$ forecastEnd  : chr "2022-07-03T14:20:00Z"
-##   ..$ minutes      :'data.frame':    78 obs. of  3 variables:
-##   .. ..$ startTime             : chr [1:78] "2022-07-03T13:02:00Z" "2022-07-03T13:03:00Z" "2022-07-03T13:04:00Z" "2022-07-03T13:05:00Z" ...
-##   .. ..$ precipitationChance   : num [1:78] 0 0 0 0 0 0 0 0 0 0 ...
-##   .. ..$ precipitationIntensity: num [1:78] 0 0 0 0 0 0 0 0 0 0 ...
+##   ..$ forecastStart: chr "2022-07-03T13:07:00Z"
+##   ..$ forecastEnd  : chr "2022-07-03T14:27:00Z"
+##   ..$ minutes      :'data.frame':    80 obs. of  3 variables:
+##   .. ..$ startTime             : chr [1:80] "2022-07-03T13:07:00Z" "2022-07-03T13:08:00Z" "2022-07-03T13:09:00Z" "2022-07-03T13:10:00Z" ...
+##   .. ..$ precipitationChance   : num [1:80] 0 0 0 0 0 0 0 0 0 0 ...
+##   .. ..$ precipitationIntensity: num [1:80] 0 0 0 0 0 0 0 0 0 0 ...
 ```
 
 ## weatherkit Metrics
@@ -232,10 +235,10 @@ wxkit_weather(43.2683199, -70.8635506) |>
 | Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
 |:-----|---------:|-----:|----:|-----:|------------:|-----:|---------:|-----:|
 | HTML |        1 | 0.04 | 306 | 0.32 |          35 | 0.13 |        2 | 0.01 |
-| R    |        9 | 0.32 | 129 | 0.13 |          54 | 0.20 |       71 | 0.24 |
+| R    |        9 | 0.32 | 126 | 0.13 |          53 | 0.19 |       69 | 0.24 |
 | YAML |        2 | 0.07 |  35 | 0.04 |          10 | 0.04 |        2 | 0.01 |
-| Rmd  |        2 | 0.07 |  15 | 0.02 |          38 | 0.14 |       72 | 0.24 |
-| SUM  |       14 | 0.50 | 485 | 0.50 |         137 | 0.50 |      147 | 0.50 |
+| Rmd  |        2 | 0.07 |  15 | 0.02 |          38 | 0.14 |       72 | 0.25 |
+| SUM  |       14 | 0.50 | 482 | 0.50 |         136 | 0.50 |      145 | 0.50 |
 
 clock Package Metrics for weatherkit
 
