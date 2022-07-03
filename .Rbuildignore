@@ -24,3 +24,4 @@
 ^package-lock\.json$
 ^\.github$
 ^Meta$
+^authorization\.md$
