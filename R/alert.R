@@ -19,10 +19,6 @@ wxkit_alert <- function(id, language = Sys.getenv("LANG"), ..., auth = wxkit_aut
       language, id
     ),
 
-    query = list(
-      country = country
-    ),
-
     httr::accept_json(),
 
     weatherkit:::.WEATHERKIT_UA,
