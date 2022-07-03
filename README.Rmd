@@ -1,0 +1,51 @@
+---
+output: rmarkdown::github_document
+editor_options: 
+  chunk_output_type: console
+---
+```{r pkg-knitr-opts, include=FALSE}
+hrbrpkghelpr::global_opts()
+```
+
+```{r badges, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::stinking_badges()
+```
+
+```{r description, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::yank_title_and_description()
+```
+
+## What's Inside The Tin
+
+The following functions are implemented:
+
+```{r ingredients, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::describe_ingredients()
+```
+
+## Installation
+
+```{r install-ex, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::install_block()
+```
+
+## Usage
+
+```{r lib-ex}
+library(weatherkit)
+
+# current version
+packageVersion("weatherkit")
+
+```
+
+## weatherkit Metrics
+
+```{r cloc, echo=FALSE}
+cloc::cloc_pkg_md()
+```
+
+## Code of Conduct
+
+Please note that this project is released with a Contributor Code of Conduct. 
+By participating in this project you agree to abide by its terms.
