@@ -29,6 +29,10 @@ hrbrpkghelpr::describe_ingredients()
 hrbrpkghelpr::install_block()
 ```
 
+## NOTE
+
+Please reference the local [Authorization](authorization.md) documentation or use `vignette("authorization", package="weatherkit")` at an R console for information on how to obtain the necessary authentication and signing components required to use the WeatherKit REST API from this package.
+
 ## Usage
 
 ```{r lib-ex}
@@ -37,6 +41,15 @@ library(weatherkit)
 # current version
 packageVersion("weatherkit")
 
+```
+
+```{r availability}
+wxkit_availability(43.2683199, -70.8635506, "US")
+```
+
+```{r weather}
+wxkit_weather(43.2683199, -70.8635506) |> 
+  str()
 ```
 
 ## weatherkit Metrics

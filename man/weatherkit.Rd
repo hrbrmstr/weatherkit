@@ -4,15 +4,18 @@
 \name{weatherkit}
 \alias{weatherkit}
 \alias{weatherkit-package}
-\title{...}
+\title{Obtain Historical, Current, and Predictive Weather Data}
 \description{
-A good description goes here otherwise CRAN checks fail.
+Apple's WeatherKit REST API (\url{https://developer.apple.com/documentation/weatherkit})
+provides timely weather information including current conditions, minute precipitation, along
+with hourly, and daily forecasts. It also provides severe weather alerts. Tools are provided to
+obtain historical, current, and predictive weather data.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://git.rud.is/hrbrmstr/weatherkit}
-  \item Report bugs at \url{https://git.rud.is/hrbrmstr/weatherkit/issues}
+  \item \url{https://github.com/hrbrmstr/weatherkit}
+  \item Report bugs at \url{https://github.com/hrbrmstr/weatherkit/issues}
 }
 
 }

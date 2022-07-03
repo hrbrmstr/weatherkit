@@ -7,3 +7,6 @@ README_cache
 src/*.o
 src/*.so
 src/*.dll
+inst/doc
+/doc/
+/Meta/
