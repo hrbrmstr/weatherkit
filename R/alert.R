@@ -7,8 +7,6 @@
 #' @param references <https://developer.apple.com/documentation/weatherkitrestapi/get_api_v1_weatheralert_language_id>
 #' @return See: <https://developer.apple.com/documentation/weatherkitrestapi/weatheralert>
 #' @export
-#' @examples
-#' wxkit_alert(43.2683199, -70.8635506, "US")
 wxkit_alert <- function(id, language = Sys.getenv("LANG"), ..., auth = wxkit_auth()) {
 
   id <- id[1]

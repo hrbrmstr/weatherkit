@@ -23,6 +23,3 @@ See: \url{https://developer.apple.com/documentation/weatherkitrestapi/weatherale
 \description{
 Receive an active weather alert.
 }
-\examples{
-wxkit_alert(43.2683199, -70.8635506, "US")
-}
