@@ -37,6 +37,7 @@ Please reference the local [Authorization](authorization.md) documentation or us
 
 ```{r lib-ex}
 library(weatherkit)
+library(ragg)
 
 # current version
 packageVersion("weatherkit")
@@ -48,8 +49,65 @@ wxkit_availability(43.2683199, -70.8635506, "US")
 ```
 
 ```{r weather}
-wxkit_weather(43.2683199, -70.8635506) |> 
-  str()
+wx <- wxkit_weather(43.2683199, -70.8635506)
+
+str(wx)
+```
+
+```{r temps, dev="ragg_png", fig.width=800/96, fig.height=500/96}
+library(ggtext)
+library(ggforce)
+library(hrbragg) # remotes::install_github("hrbrmstr/hrbragg")
+library(ggplot2)
+library(weatherkit)
+
+wx <- wx_tidy(wxkit_weather(43.2683199, -70.8635506))
+
+data.frame(
+  x = celsius_to_fahrenheit(wx$forecastDaily$days$temperatureMin),
+  xend = celsius_to_fahrenheit(wx$forecastDaily$days$temperatureMax),
+  y = as.integer(as.Date(wx$forecastDaily$days$forecastStart))
+) -> xdf
+
+xdf |>
+  ggplot() +
+  geom_link(
+    aes(
+      x, y, xend=xend, yend=y,
+      colour = stat(index)
+    ),
+    linewidth = 4, # remotes::install_github("tidyverse/ggplot2")
+    lineend = "round",
+    show.legend = FALSE
+  ) +
+  scale_x_continuous(
+    name = NULL,
+    label = \(x) sprintf("%s°F", x),
+    sec.axis = dup_axis()
+  ) +
+  scale_y_reverse(
+    name = NULL,
+    breaks = seq_rng(xdf$y),
+    labels = \(x) {
+      x <- as.Date(x, origin="1970-01-01")
+      ifelse(x == Sys.Date(), "Today", strftime(x, "%a"))
+    },
+    sec.axis = dup_axis()
+  ) +
+  scale_colour_viridis_c(
+    option = "cividis"
+  ) +
+  labs(
+    title = "Weather for Berwick Maine"
+  ) +
+  theme_gs(grid="XY", axis_text_size = 12) +
+  theme(
+    axis.title.x.top = element_blank(),
+    axis.text.y.left = element_markdown(family = "Inter"),
+    axis.text.y.right = element_markdown(family = "Inter"),
+    panel.grid.major.x = element_line(linetype = "dotted", size = 0.5),
+    panel.grid.major.y = element_line(linetype = "dotted", size = 0.5)
+  )
 ```
 
 ## weatherkit Metrics

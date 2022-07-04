@@ -23,3 +23,15 @@ make_jwt <- function(time_delta = 60*60*5, auth_components = wxkit_auth()) {
 
   )
 }
+
+#' Create a sequence from a value range
+#'
+#' @param vals vector of values
+#' @param by See [seq()]
+#' @param na.rm remove `NA`'s? Default: `TRUE`
+#' @param ... passed to [seq()] call
+#' @export
+seq_rng <- function(vals, by=1, na.rm = TRUE, ...) {
+  r <- range(vals, na.rm=na.rm)
+  seq(r[1], r[2], by=by, ...)
+}
