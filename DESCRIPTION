@@ -26,7 +26,9 @@ Imports:
     httr,
     jsonlite,
     jose,
-    openssl
+    openssl,
+    anytime,
+    weathermetrics
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 VignetteBuilder: knitr
