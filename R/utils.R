@@ -1,3 +1,10 @@
+hasName <- \(x, name) match(name, names(x), nomatch = 0L) > 0L
+
+sans_ext <- \(x, compression = FALSE) {
+  if (compression)x <- sub("[.](gz|bz2|xz)$", "", x)
+  sub("([^.]+)\\.[[:alnum:]]+$", "\\1", x)
+}
+
 make_jwt <- function(time_delta = 60*60*5, auth_components = wxkit_auth()) {
 
   now <- Sys.time()

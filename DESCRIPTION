@@ -5,13 +5,16 @@ Version: 0.1.0
 Date: 2022-07-03
 Authors@R: c(
     person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
-           comment = c(ORCID = "0000-0001-5670-2640"))
+           comment = c(ORCID = "0000-0001-5670-2640")),
+    person("Erik", "Flowers", email = "erik@helloerik.com", role = "aut",
+           comment = "SVG Weather Icons <https://github.com/erikflowers/weather-icons>")
   )
 Maintainer: Bob Rudis <bob@rud.is>
 Description: Apple's WeatherKit REST API (<https://developer.apple.com/documentation/weatherkit>) 
     provides timely weather information including current conditions, minute precipitation, along 
     with hourly, and daily forecasts. It also provides severe weather alerts. Tools are provided to 
-    obtain historical, current, and predictive weather data.
+    obtain historical, current, and predictive weather data. Also includes a set of
+    weather icons by Erik Flowers.
 URL: https://github.com/hrbrmstr/weatherkit
 BugReports: https://github.com/hrbrmstr/weatherkit/issues
 Encoding: UTF-8
@@ -28,7 +31,8 @@ Imports:
     jose,
     openssl,
     anytime,
-    weathermetrics
+    weathermetrics,
+    htmltools
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 VignetteBuilder: knitr

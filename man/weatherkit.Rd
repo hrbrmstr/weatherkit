@@ -10,6 +10,7 @@ Apple's WeatherKit REST API (\url{https://developer.apple.com/documentation/weat
 provides timely weather information including current conditions, minute precipitation, along
 with hourly, and daily forecasts. It also provides severe weather alerts. Tools are provided to
 obtain historical, current, and predictive weather data.
+Also includes a set of weather icons by Erik Flowers.
 }
 \seealso{
 Useful links:
