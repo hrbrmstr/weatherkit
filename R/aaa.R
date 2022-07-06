@@ -5,3 +5,8 @@ httr::user_agent(
     utils::packageDescription("weatherkit")$URL
   )
 ) -> .WEATHERKIT_UA
+
+set_names <- \(object = nm, nm)  {
+  names(object) <- nm
+  object
+}

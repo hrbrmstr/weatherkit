@@ -2,9 +2,12 @@
 % Please edit documentation in R/temps.R
 \name{fahrenheit_to_celsius}
 \alias{fahrenheit_to_celsius}
+\alias{F2C}
 \title{Convert from Fahrenheit to Celsius}
 \usage{
 fahrenheit_to_celsius(T.fahrenheit, round = 2)
+
+F2C(T.fahrenheit, round = 2)
 }
 \arguments{
 \item{T.fahrenheit}{Numeric vector of temperatures in Fahrenheit.}
@@ -16,5 +19,19 @@ round the converted value.}
 double
 }
 \description{
-Convert from Fahrenheit to Celsius
+\code{fahrenheit.to.celsius} creates a numeric vector of temperatures in
+   Celsius from a numeric vector of temperatures in Fahrenheit.
+}
+\examples{
+# Convert from Fahrenheit to Celsius.
+data(norfolk)
+norfolk$TempC <- fahrenheit.to.celsius(norfolk$TemperatureF)
+norfolk
+}
+\seealso{
+\code{\link[weathermetrics]{celsius.to.fahrenheit}}
+}
+\author{
+Brooke Anderson \email{brooke.anderson@colostate.edu},
+Roger Peng \email{rdpeng@gmail.com}
 }

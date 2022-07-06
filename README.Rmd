@@ -33,6 +33,8 @@ hrbrpkghelpr::install_block()
 
 Please reference the local [Authorization](authorization.md) documentation or use `vignette("authorization", package="weatherkit")` at an R console for information on how to obtain the necessary authentication and signing components required to use the WeatherKit REST API from this package.
 
+If your apps, web apps, or websites display any Apple weather data (other than weather alerts or value-added services or products, as described below), you must clearly display the Apple Weather trademark ( Weather), as well as the [legal link to other data sources](https://weatherkit.apple.com/legal-attribution.html).
+
 ## Usage
 
 ```{r lib-ex}
@@ -50,8 +52,12 @@ wxkit_availability(43.2683199, -70.8635506, "US")
 
 ```{r weather}
 wx <- wxkit_weather(43.2683199, -70.8635506)
-
+wx <- wx_tidy(wx)
 str(wx)
+```
+
+```{r current_conditions}
+current_conditions(wx)
 ```
 
 ```{r temps, dev="ragg_png", fig.width=800/96, fig.height=500/96}
@@ -60,8 +66,6 @@ library(ggforce)
 library(hrbragg) # remotes::install_github("hrbrmstr/hrbragg")
 library(ggplot2)
 library(weatherkit)
-
-wx <- wx_tidy(wxkit_weather(43.2683199, -70.8635506))
 
 data.frame(
   x = celsius_to_fahrenheit(wx$forecastDaily$days$temperatureMin),

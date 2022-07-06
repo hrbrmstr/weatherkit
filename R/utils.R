@@ -42,3 +42,54 @@ seq_rng <- function(vals, by=1, na.rm = TRUE, ...) {
   r <- range(vals, na.rm=na.rm)
   seq(r[1], r[2], by=by, ...)
 }
+
+#' UV index to label
+#'
+#' @param uv_index uv index level
+#' @param swatch if `TRUE` (default is `FALSE`) a color swatch emoji
+#'        will be returned instead of the text label. 🟩 = `Low`, 🟨 = `Moderate`, 🟧 = `High`,
+#'        🟥 = `Very High`,🟪 = `Extreme`
+#' @return character vector
+#' @export
+uv_label <- function(uv_index, swatch = FALSE) {
+
+  c(
+    "Low" = "🟩",
+    "Moderate" = "🟨",
+    "High" = "🟧",
+    "Very High" = "🟥",
+    "Extreme" = "🟪"
+  ) -> swatches
+
+  ifelse(
+    test = (uv_index < 3),
+    yes = "Low",
+    no = ifelse(
+      test = (uv_index < 6),
+      yes = "Moderate",
+      no = ifelse (
+        test = (uv_index < 8),
+        yes = "High",
+        no = ifelse(
+          test = (uv_index < 11),
+          yes = "Very High",
+          no = "Extreme"
+        )
+      )
+    )
+  ) -> res
+
+  if (swatch) swatches[res] else res
+
+}
+
+#' Convert meters to miles
+#'
+#' @param meters numeric
+#' @param round round the return value? Default: `TRUE`
+#' @return numeric
+#' @export
+meters_to_miles <- function(meters, round = TRUE) {
+  miles <- meters * 0.000621
+  if (round) round(miles) else miles
+}
