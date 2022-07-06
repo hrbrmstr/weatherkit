@@ -4,10 +4,15 @@
 \alias{current_conditions}
 \title{Function to display current conditions for a given weather data retrieval}
 \usage{
-current_conditions(wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506)))
+current_conditions(
+  wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506)),
+  metric = FALSE
+)
 }
 \arguments{
 \item{wx}{an object retrieved by \code{\link[=wxkit_weather]{wxkit_weather()}} and pre-tidied with \code{\link[=wx_tidy]{wx_tidy()}}}
+
+\item{metric}{if \code{TRUE} (default is \code{FALSE}) data is in metric.}
 }
 \value{
 nothing (side effect is printing to stdout)
