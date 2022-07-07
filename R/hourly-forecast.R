@@ -78,7 +78,7 @@ hourly_forecast <- function(wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506))
 
   display_hrs$uvIndex <- uv_label(display_hrs$uvIndex, swatch = TRUE)
 
-  day_pad <- stri_pad_left(ifelse(as.Date(display_hrs$forecastStart) == Sys.Date(), "Today", strftime(display_hrs$forecastStart, "%a")), width = 5)
+  day_pad <- stri_pad_left(ifelse(as.Date(display_hrs$forecastStart, tz = tzone) == Sys.Date(), "Today", strftime(display_hrs$forecastStart, "%a", tz = tzone)), width = 5)
   day_pad[duplicated(day_pad)] <- gsub(".", " ", day_pad[duplicated(day_pad)])
   cat(
     paste0(apple_weather_trademark, " forecast for ", "(", wx$currentWeather$metadata$latitude, ", ",  wx$currentWeather$metadata$longitude, ")", " as of ", wx$currentWeather$asOf), "",
