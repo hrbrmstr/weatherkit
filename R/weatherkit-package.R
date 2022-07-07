@@ -22,4 +22,5 @@
 #' @importFrom stringi stri_pad_left stri_pad_right
 #' @importFrom jsonlite fromJSON unbox
 #' @importFrom htmltools html_print HTML
+#' @importFrom scales comma percent
 "_PACKAGE"

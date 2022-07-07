@@ -56,12 +56,16 @@ wx <- wx_tidy(wx)
 str(wx)
 ```
 
-```{r current_conditions}
+```{r current-conditions}
 current_conditions(wx)
 ```
 
-```{r hourly_forecast}
+```{r hourly-forecast}
 hourly_forecast(wx)
+```
+
+```{r daily-forecast}
+daily_forecast(wx)
 ```
 
 ```{r temps, dev="ragg_png", fig.width=800/96, fig.height=500/96}
