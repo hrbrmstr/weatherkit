@@ -60,6 +60,10 @@ str(wx)
 current_conditions(wx)
 ```
 
+```{r hourly_forecast}
+hourly_forecast(wx)
+```
+
 ```{r temps, dev="ragg_png", fig.width=800/96, fig.height=500/96}
 library(ggtext)
 library(ggforce)
@@ -102,7 +106,7 @@ xdf |>
     option = "cividis"
   ) +
   labs(
-    title = "Weather for Berwick Maine"
+    title = "Weather for Berwick, Maine"
   ) +
   theme_gs(grid="XY", axis_text_size = 12) +
   theme(
