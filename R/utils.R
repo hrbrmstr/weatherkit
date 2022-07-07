@@ -160,7 +160,7 @@ precip_type <- function(precip, daylight) {
             yes = "❄️",
             no = ifelse(
               test = daylight,
-              yes = "️😎",
+              yes = "😎",
               no = "🌕"
             )
           )
