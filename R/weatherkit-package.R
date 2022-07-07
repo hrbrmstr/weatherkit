@@ -23,4 +23,5 @@
 #' @importFrom jsonlite fromJSON unbox
 #' @importFrom htmltools html_print HTML
 #' @importFrom scales comma percent
+#' @importFrom cli col_br_black col_yellow
 "_PACKAGE"

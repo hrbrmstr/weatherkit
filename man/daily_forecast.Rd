@@ -7,7 +7,8 @@
 daily_forecast(
   wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506)),
   tzone,
-  metric = FALSE
+  metric = FALSE,
+  incl_legal = TRUE
 )
 }
 \arguments{
@@ -18,6 +19,8 @@ daily_forecast(
 to guess the timezone.}
 
 \item{metric}{if \code{TRUE} (default is \code{FALSE}) data is in metric.}
+
+\item{incl_legal}{if \code{FALSE} (default is \code{TRUE}) do not include Apple's required legal bits}
 }
 \value{
 nothing (side effect is printing to stdout)

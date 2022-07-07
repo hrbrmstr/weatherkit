@@ -9,9 +9,10 @@
 #'       "fast" method on the `forecastHourly$metadata` `latitude` and `longitude` values
 #'       to guess the timezone.
 #' @param metric if `TRUE` (default is `FALSE`) data is in metric.
+#' @param incl_legal if `FALSE` (default is `TRUE`) do not include Apple's required legal bits
 #' @return nothing (side effect is printing to stdout)
 #' @export
-hourly_forecast <- function(wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506)), n_hours = 12, tzone, metric = FALSE) {
+hourly_forecast <- function(wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506)), n_hours = 12, tzone, metric = FALSE, incl_legal = TRUE) {
 
   if (missing(tzone)) {
 
@@ -81,8 +82,14 @@ hourly_forecast <- function(wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506))
   day_pad <- stri_pad_left(ifelse(as.Date(display_hrs$forecastStart, tz = tzone) == Sys.Date(), "Today", strftime(display_hrs$forecastStart, "%a", tz = tzone)), width = 5)
   day_pad[duplicated(day_pad)] <- gsub(".", " ", day_pad[duplicated(day_pad)])
 
+  if (incl_legal) {
+    cat(
+      paste0(apple_weather_trademark, " daily forecast for ", "(", wx$currentWeather$metadata$latitude, ", ",  wx$currentWeather$metadata$longitude, ")", " as of ", wx$currentWeather$asOf), "\n\n",
+      sep = ""
+    )
+  }
+
   cat(
-    paste0(apple_weather_trademark, " forecast for ", "(", wx$currentWeather$metadata$latitude, ", ",  wx$currentWeather$metadata$longitude, ")", " as of ", wx$currentWeather$asOf), "",
     sprintf(
       "%s @ %s │ 🌡 %s │ 💦 %s │ %s │ %s │ %s │ %s",
       day_pad,
@@ -93,9 +100,15 @@ hourly_forecast <- function(wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506))
       display_hrs$precipitationType,
       display_hrs$conditionCode,
       display_hrs$uvIndex
-    ), "",
-    paste0(wx$currentWeather$metadata$attributionURL),
+    ),
     sep = "\n"
   )
+
+  if (incl_legal) {
+    cat(
+      "\n", paste0(wx$currentWeather$metadata$attributionURL), "\n",
+      sep = ""
+    )
+  }
 
 }
