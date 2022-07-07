@@ -83,7 +83,7 @@ hourly_forecast <- function(wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506))
   cat(
     paste0(apple_weather_trademark, " forecast for ", "(", wx$currentWeather$metadata$latitude, ", ",  wx$currentWeather$metadata$longitude, ")", " as of ", wx$currentWeather$asOf), "",
     sprintf(
-      "%s @ %s │ 🌡 %s │ 💦 %s │ %s │ %s | %s",
+      "%s @ %s │ 🌡 %s │ 💦 %s │ %s │ %s │ %s",
       day_pad,
       strftime(display_hrs$forecastStart, "%H:%M"),
       display_hrs$temperature,
