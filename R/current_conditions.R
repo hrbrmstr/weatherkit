@@ -4,10 +4,29 @@
 #' location. You likely want to specify `wx`.
 #'
 #' @param wx an object retrieved by [wxkit_weather()] and pre-tidied with [wx_tidy()]
+#' @param tzone if not specified, this function will use [lutz::tz_lookup_coords()]
+#'       "fast" method on the `forecastHourly$metadata` `latitude` and `longitude` values
+#'       to guess the timezone.
 #' @param metric if `TRUE` (default is `FALSE`) data is in metric.
 #' @return nothing (side effect is printing to stdout)
 #' @export
-current_conditions <- function(wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506)), metric = FALSE) {
+current_conditions <- function(wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506)), tzone, metric = FALSE) {
+
+  if (missing(tzone)) {
+
+    lutz::tz_lookup_coords(
+      lat = wx$forecastHourly$metadata$latitude,
+      lon = wx$forecastHourly$metadata$longitude,
+      method = "fast",
+      warn = FALSE
+    ) -> tzone
+
+  }
+
+  with_tz(
+    time = wx$currentWeather$asOf,
+    tzone = tzone
+  ) -> wx$currentWeather$asOf
 
   if (metric) {
     cat(

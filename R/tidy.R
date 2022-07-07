@@ -9,7 +9,7 @@ wx_tidy <- function(wx) {
   if (hasName(wx, "currentWeather")) {
 
     wx$currentWeather$asOf <-
-      anytime::anytime(asUTC = TRUE, wx$currentWeather$asOf)
+      as_posixct_from_utc(wx$currentWeather$asOf)
 
     if (hasName(wx$currentWeather, "metadata")) {
 
@@ -19,7 +19,7 @@ wx_tidy <- function(wx) {
 
       for (field in posixct_fields) {
         wx$currentWeather$metadata[[field]] <-
-          anytime::anytime(asUTC = TRUE, wx$currentWeather$metadata[[field]])
+          as_posixct_from_utc(wx$currentWeather$metadata[[field]])
       }
 
     }
@@ -36,7 +36,7 @@ wx_tidy <- function(wx) {
 
       for (field in posixct_fields) {
         wx$forecastDaily$metadata[[field]] <-
-          anytime::anytime(asUTC = TRUE, wx$forecastDaily$metadata[[field]])
+          as_posixct_from_utc(wx$forecastDaily$metadata[[field]])
       }
 
     }
@@ -52,7 +52,7 @@ wx_tidy <- function(wx) {
       ) -> posixct_fields
 
       for (field in posixct_fields) {
-        wx$forecastDaily$days[[field]] <- anytime::anytime(asUTC = TRUE, wx$forecastDaily$days[[field]])
+        wx$forecastDaily$days[[field]] <- as_posixct_from_utc(wx$forecastDaily$days[[field]])
       }
 
       if (hasName(wx$forecastDaily$days, "daytimeForecast") &&
@@ -64,7 +64,7 @@ wx_tidy <- function(wx) {
 
         for (field in posixct_fields) {
           wx$forecastDaily$days$daytimeForecast[[field]] <-
-            anytime::anytime(asUTC = TRUE, wx$forecastDaily$days$daytimeForecast[[field]])
+            as_posixct_from_utc(wx$forecastDaily$days$daytimeForecast[[field]])
         }
 
       }
@@ -78,7 +78,7 @@ wx_tidy <- function(wx) {
 
         for (field in posixct_fields) {
           wx$forecastDaily$days$overnightForecast[[field]] <-
-            anytime::anytime(asUTC = TRUE, wx$forecastDaily$days$overnightForecast[[field]])
+            as_posixct_from_utc(wx$forecastDaily$days$overnightForecast[[field]])
         }
 
       }
@@ -92,7 +92,7 @@ wx_tidy <- function(wx) {
 
         for (field in posixct_fields) {
           wx$forecastDaily$days$restOfDayForecast[[field]] <-
-            anytime::anytime(asUTC = TRUE, wx$forecastDaily$days$restOfDayForecast[[field]])
+            as_posixct_from_utc(wx$forecastDaily$days$restOfDayForecast[[field]])
         }
 
       }
@@ -110,7 +110,7 @@ wx_tidy <- function(wx) {
 
       for (field in posixct_fields) {
         wx$forecastHourly$metadata[[field]] <-
-          anytime::anytime(asUTC = TRUE, wx$forecastHourly$metadata[[field]])
+          as_posixct_from_utc(wx$forecastHourly$metadata[[field]])
       }
 
     }
@@ -124,7 +124,7 @@ wx_tidy <- function(wx) {
 
       for (field in posixct_fields) {
         wx$forecastHourly$hours[[field]] <-
-          anytime::anytime(asUTC = TRUE, wx$forecastHourly$hours[[field]])
+          as_posixct_from_utc(wx$forecastHourly$hours[[field]])
       }
 
     }
@@ -140,7 +140,7 @@ wx_tidy <- function(wx) {
 
       for (field in posixct_fields) {
         wx$forecastNextHour$metadata[[field]] <-
-          anytime::anytime(asUTC = TRUE, wx$forecastNextHour$metadata[[field]])
+          as_posixct_from_utc(wx$forecastNextHour$metadata[[field]])
       }
 
     }
@@ -148,22 +148,22 @@ wx_tidy <- function(wx) {
 
     if (hasName(wx$forecastNextHour, "summary")) {
       wx$forecastNextHour$summary$startTime <-
-        anytime::anytime(asUTC = TRUE, wx$forecastNextHour$summary$startTime)
+        as_posixct_from_utc(wx$forecastNextHour$summary$startTime)
     }
 
     if (hasName(wx$forecastNextHour, "forecastStart")) {
       wx$forecastNextHour$forecastStart <-
-        anytime::anytime(asUTC = TRUE, wx$forecastNextHour$forecastStart)
+        as_posixct_from_utc(wx$forecastNextHour$forecastStart)
     }
 
     if (hasName(wx$forecastNextHour, "forecastEnd")) {
       wx$forecastNextHour$forecastEnd <-
-        anytime::anytime(asUTC = TRUE, wx$forecastNextHour$forecastEnd)
+        as_posixct_from_utc(wx$forecastNextHour$forecastEnd)
     }
 
     if (hasName(wx$forecastNextHour, "minutes")) {
       wx$forecastNextHour$minutes$startTime <-
-        anytime::anytime(asUTC = TRUE, wx$forecastNextHour$minutes$startTime)
+        as_posixct_from_utc(wx$forecastNextHour$minutes$startTime)
     }
 
   }

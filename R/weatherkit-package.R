@@ -18,7 +18,8 @@
 #' @name weatherkit
 #' @keywords internal
 #' @author Bob Rudis (bob@@rud.is)
-#' @import httr openssl jose
+#' @import httr openssl jose lutz
+#' @importFrom stringi stri_pad_left stri_pad_right
 #' @importFrom jsonlite fromJSON unbox
 #' @importFrom htmltools html_print HTML
 "_PACKAGE"
