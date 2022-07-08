@@ -36,6 +36,7 @@ The following functions are implemented:
 -   `anytime`: Parse POSIXct or Date objects from input data
 -   `apple_weather_trademark`: The Apple Weather Required Trademark
 -   `celsius_to_fahrenheit`: Convert from Celsius to Fahrenheit
+-   `command_line_forecast_script`: Command Line Forecast Script
 -   `condition_codes`: Condition Codes
 -   `convert_wind_speed`: Convert between wind speed metrics
 -   `coordinates_from_ip`: Get latitude and longitude coordinates from
@@ -125,215 +126,215 @@ str(wx)
 ##   ..$ name                  : chr "CurrentWeather"
 ##   ..$ metadata              :List of 8
 ##   .. ..$ attributionURL: chr "https://weather-data.apple.com/legal-attribution.html"
-##   .. ..$ expireTime    : POSIXct[1:1], format: "2022-07-07 16:35:36"
+##   .. ..$ expireTime    : POSIXct[1:1], format: "2022-07-08 15:45:09"
 ##   .. ..$ latitude      : num 43.3
 ##   .. ..$ longitude     : num -70.9
-##   .. ..$ readTime      : POSIXct[1:1], format: "2022-07-07 16:30:36"
-##   .. ..$ reportedTime  : POSIXct[1:1], format: "2022-07-07 15:02:19"
+##   .. ..$ readTime      : POSIXct[1:1], format: "2022-07-08 15:40:09"
+##   .. ..$ reportedTime  : POSIXct[1:1], format: "2022-07-08 13:58:20"
 ##   .. ..$ units         : chr "m"
 ##   .. ..$ version       : int 1
-##   ..$ asOf                  : POSIXct[1:1], format: "2022-07-07 16:30:36"
-##   ..$ cloudCover            : num 0.57
-##   ..$ conditionCode         : chr "PartlyCloudy"
+##   ..$ asOf                  : POSIXct[1:1], format: "2022-07-08 15:40:09"
+##   ..$ cloudCover            : num 0.32
+##   ..$ conditionCode         : chr "MostlyClear"
 ##   ..$ daylight              : logi TRUE
-##   ..$ humidity              : num 0.51
+##   ..$ humidity              : num 0.52
 ##   ..$ precipitationIntensity: num 0
-##   ..$ pressure              : num 1017
+##   ..$ pressure              : num 1013
 ##   ..$ pressureTrend         : chr "falling"
-##   ..$ temperature           : num 24.8
-##   ..$ temperatureApparent   : num 24.8
-##   ..$ temperatureDewPoint   : num 14.1
-##   ..$ uvIndex               : int 6
-##   ..$ visibility            : num 31914
-##   ..$ windDirection         : int 185
-##   ..$ windGust              : num 17
-##   ..$ windSpeed             : num 7.15
+##   ..$ temperature           : num 27.1
+##   ..$ temperatureApparent   : num 27.7
+##   ..$ temperatureDewPoint   : num 16.4
+##   ..$ uvIndex               : int 7
+##   ..$ visibility            : num 34267
+##   ..$ windDirection         : int 263
+##   ..$ windGust              : num 27.7
+##   ..$ windSpeed             : num 11.9
 ##  $ forecastDaily   :List of 3
 ##   ..$ name    : chr "DailyForecast"
 ##   ..$ metadata:List of 8
 ##   .. ..$ attributionURL: chr "https://weather-data.apple.com/legal-attribution.html"
-##   .. ..$ expireTime    : POSIXct[1:1], format: "2022-07-07 17:30:36"
+##   .. ..$ expireTime    : POSIXct[1:1], format: "2022-07-08 16:40:09"
 ##   .. ..$ latitude      : num 43.3
 ##   .. ..$ longitude     : num -70.9
-##   .. ..$ readTime      : POSIXct[1:1], format: "2022-07-07 16:30:36"
-##   .. ..$ reportedTime  : POSIXct[1:1], format: "2022-07-07 15:02:19"
+##   .. ..$ readTime      : POSIXct[1:1], format: "2022-07-08 15:40:09"
+##   .. ..$ reportedTime  : POSIXct[1:1], format: "2022-07-08 13:58:20"
 ##   .. ..$ units         : chr "m"
 ##   .. ..$ version       : int 1
 ##   ..$ days    :'data.frame': 10 obs. of  26 variables:
-##   .. ..$ forecastStart      : POSIXct[1:10], format: "2022-07-07 04:00:00" "2022-07-08 04:00:00" "2022-07-09 04:00:00" "2022-07-10 04:00:00" ...
-##   .. ..$ forecastEnd        : POSIXct[1:10], format: "2022-07-08 04:00:00" "2022-07-09 04:00:00" "2022-07-10 04:00:00" "2022-07-11 04:00:00" ...
-##   .. ..$ conditionCode      : chr [1:10] "PartlyCloudy" "PartlyCloudy" "MostlyClear" "MostlyClear" ...
-##   .. ..$ maxUvIndex         : int [1:10] 6 7 7 8 7 6 7 5 5 5
-##   .. ..$ moonPhase          : chr [1:10] "firstQuarter" "firstQuarter" "waxingGibbous" "waxingGibbous" ...
-##   .. ..$ moonrise           : POSIXct[1:10], format: "2022-07-07 17:38:12" "2022-07-08 18:50:47" "2022-07-09 20:07:35" "2022-07-10 21:27:35" ...
-##   .. ..$ moonset            : POSIXct[1:10], format: "2022-07-07 04:32:48" "2022-07-08 04:54:51" "2022-07-09 05:20:27" "2022-07-10 05:51:50" ...
-##   .. ..$ precipitationAmount: num [1:10] 0.03 0.47 0 0 0 ...
-##   .. ..$ precipitationChance: num [1:10] 0.03 0.14 0.07 0 0.08 0.39 0.4 0.4 0.38 0.29
-##   .. ..$ precipitationType  : chr [1:10] "rain" "rain" "clear" "clear" ...
+##   .. ..$ forecastStart      : POSIXct[1:10], format: "2022-07-08 04:00:00" "2022-07-09 04:00:00" "2022-07-10 04:00:00" "2022-07-11 04:00:00" ...
+##   .. ..$ forecastEnd        : POSIXct[1:10], format: "2022-07-09 04:00:00" "2022-07-10 04:00:00" "2022-07-11 04:00:00" "2022-07-12 04:00:00" ...
+##   .. ..$ conditionCode      : chr [1:10] "PartlyCloudy" "MostlyClear" "Clear" "MostlyClear" ...
+##   .. ..$ maxUvIndex         : int [1:10] 7 7 8 7 6 7 6 4 7 6
+##   .. ..$ moonPhase          : chr [1:10] "firstQuarter" "waxingGibbous" "waxingGibbous" "waxingGibbous" ...
+##   .. ..$ moonrise           : POSIXct[1:10], format: "2022-07-08 18:50:47" "2022-07-09 20:07:35" "2022-07-10 21:27:35" "2022-07-11 22:46:29" ...
+##   .. ..$ moonset            : POSIXct[1:10], format: "2022-07-08 04:54:51" "2022-07-09 05:20:27" "2022-07-10 05:51:50" "2022-07-11 06:32:18" ...
+##   .. ..$ precipitationAmount: num [1:10] 0 0 0 0 1.09 2.83 0.33 0.1 0 2.08
+##   .. ..$ precipitationChance: num [1:10] 0.04 0.01 0 0.05 0.46 0.53 0.43 0.36 0.21 0.36
+##   .. ..$ precipitationType  : chr [1:10] "clear" "clear" "clear" "clear" ...
 ##   .. ..$ snowfallAmount     : num [1:10] 0 0 0 0 0 0 0 0 0 0
-##   .. ..$ solarMidnight      : POSIXct[1:10], format: "2022-07-07 04:48:29" "2022-07-08 04:48:39" "2022-07-09 04:48:49" "2022-07-10 04:48:58" ...
-##   .. ..$ solarNoon          : POSIXct[1:10], format: "2022-07-07 16:48:26" "2022-07-08 16:48:35" "2022-07-09 16:48:44" "2022-07-10 16:48:53" ...
-##   .. ..$ sunrise            : POSIXct[1:10], format: "2022-07-07 09:10:59" "2022-07-08 09:11:42" "2022-07-09 09:12:26" "2022-07-10 09:13:11" ...
-##   .. ..$ sunriseCivil       : POSIXct[1:10], format: "2022-07-07 08:36:06" "2022-07-08 08:36:53" "2022-07-09 08:37:41" "2022-07-10 08:38:31" ...
-##   .. ..$ sunriseNautical    : POSIXct[1:10], format: "2022-07-07 07:50:45" "2022-07-08 07:51:39" "2022-07-09 07:52:36" "2022-07-10 07:53:34" ...
-##   .. ..$ sunriseAstronomical: POSIXct[1:10], format: "2022-07-07 06:55:17" "2022-07-08 06:56:30" "2022-07-09 06:57:46" "2022-07-10 06:59:04" ...
-##   .. ..$ sunset             : POSIXct[1:10], format: "2022-07-08 00:25:50" "2022-07-09 00:25:26" "2022-07-10 00:24:59" "2022-07-11 00:24:30" ...
-##   .. ..$ sunsetCivil        : POSIXct[1:10], format: "2022-07-08 01:00:39" "2022-07-09 01:00:10" "2022-07-10 00:59:38" "2022-07-11 00:59:04" ...
-##   .. ..$ sunsetNautical     : POSIXct[1:10], format: "2022-07-08 01:46:01" "2022-07-09 01:45:23" "2022-07-10 01:44:42" "2022-07-11 01:43:58" ...
-##   .. ..$ sunsetAstronomical : POSIXct[1:10], format: "2022-07-08 02:41:14" "2022-07-09 02:40:16" "2022-07-10 02:39:14" "2022-07-11 02:38:09" ...
-##   .. ..$ temperatureMax     : num [1:10] 26 28.9 24.5 25.3 28.9 ...
-##   .. ..$ temperatureMin     : num [1:10] 13.7 16.6 14.9 12.3 12.4 ...
+##   .. ..$ solarMidnight      : POSIXct[1:10], format: "2022-07-08 04:48:39" "2022-07-09 04:48:49" "2022-07-10 04:48:58" "2022-07-11 04:49:06" ...
+##   .. ..$ solarNoon          : POSIXct[1:10], format: "2022-07-08 16:48:35" "2022-07-09 16:48:44" "2022-07-10 16:48:53" "2022-07-11 16:49:00" ...
+##   .. ..$ sunrise            : POSIXct[1:10], format: "2022-07-08 09:11:42" "2022-07-09 09:12:26" "2022-07-10 09:13:11" "2022-07-11 09:13:57" ...
+##   .. ..$ sunriseCivil       : POSIXct[1:10], format: "2022-07-08 08:36:53" "2022-07-09 08:37:41" "2022-07-10 08:38:31" "2022-07-11 08:39:22" ...
+##   .. ..$ sunriseNautical    : POSIXct[1:10], format: "2022-07-08 07:51:39" "2022-07-09 07:52:36" "2022-07-10 07:53:34" "2022-07-11 07:54:34" ...
+##   .. ..$ sunriseAstronomical: POSIXct[1:10], format: "2022-07-08 06:56:30" "2022-07-09 06:57:46" "2022-07-10 06:59:04" "2022-07-11 07:00:25" ...
+##   .. ..$ sunset             : POSIXct[1:10], format: "2022-07-09 00:25:26" "2022-07-10 00:24:59" "2022-07-11 00:24:30" "2022-07-12 00:23:59" ...
+##   .. ..$ sunsetCivil        : POSIXct[1:10], format: "2022-07-09 01:00:10" "2022-07-10 00:59:38" "2022-07-11 00:59:04" "2022-07-12 00:58:29" ...
+##   .. ..$ sunsetNautical     : POSIXct[1:10], format: "2022-07-09 01:45:23" "2022-07-10 01:44:42" "2022-07-11 01:43:58" "2022-07-12 01:43:12" ...
+##   .. ..$ sunsetAstronomical : POSIXct[1:10], format: "2022-07-09 02:40:16" "2022-07-10 02:39:14" "2022-07-11 02:38:09" "2022-07-12 02:37:00" ...
+##   .. ..$ temperatureMax     : num [1:10] 28.8 24.8 25.5 28.8 30.9 ...
+##   .. ..$ temperatureMin     : num [1:10] 15.6 15 11.6 12.4 18.9 ...
 ##   .. ..$ daytimeForecast    :'data.frame':   10 obs. of  11 variables:
-##   .. .. ..$ forecastStart      : POSIXct[1:10], format: "2022-07-07 11:00:00" "2022-07-08 11:00:00" "2022-07-09 11:00:00" "2022-07-10 11:00:00" ...
-##   .. .. ..$ forecastEnd        : POSIXct[1:10], format: "2022-07-07 23:00:00" "2022-07-08 23:00:00" "2022-07-09 23:00:00" "2022-07-10 23:00:00" ...
-##   .. .. ..$ cloudCover         : num [1:10] 0.46 0.43 0.36 0.1 0.42 0.66 0.43 0.79 0.79 0.81
-##   .. .. ..$ conditionCode      : chr [1:10] "PartlyCloudy" "PartlyCloudy" "MostlyClear" "Clear" ...
-##   .. .. ..$ humidity           : num [1:10] 0.58 0.57 0.56 0.47 0.5 0.62 0.65 0.7 0.68 0.67
-##   .. .. ..$ precipitationAmount: num [1:10] 0.03 0.39 0 0 0 1.46 0.18 3.08 2.33 0
-##   .. .. ..$ precipitationChance: num [1:10] 0.02 0.09 0.04 0 0.03 0.24 0.18 0.31 0.29 0.16
-##   .. .. ..$ precipitationType  : chr [1:10] "rain" "rain" "clear" "clear" ...
+##   .. .. ..$ forecastStart      : POSIXct[1:10], format: "2022-07-08 11:00:00" "2022-07-09 11:00:00" "2022-07-10 11:00:00" "2022-07-11 11:00:00" ...
+##   .. .. ..$ forecastEnd        : POSIXct[1:10], format: "2022-07-08 23:00:00" "2022-07-09 23:00:00" "2022-07-10 23:00:00" "2022-07-11 23:00:00" ...
+##   .. .. ..$ cloudCover         : num [1:10] 0.48 0.31 0.06 0.35 0.67 0.45 0.65 0.77 0.38 0.58
+##   .. .. ..$ conditionCode      : chr [1:10] "PartlyCloudy" "MostlyClear" "Clear" "MostlyClear" ...
+##   .. .. ..$ humidity           : num [1:10] 0.56 0.55 0.46 0.51 0.6 0.66 0.68 0.67 0.54 0.59
+##   .. .. ..$ precipitationAmount: num [1:10] 0 0 0 0 0 1.92 0.13 0 0 0.52
+##   .. .. ..$ precipitationChance: num [1:10] 0.03 0 0 0.02 0.3 0.34 0.27 0.14 0.12 0.24
+##   .. .. ..$ precipitationType  : chr [1:10] "clear" "clear" "clear" "clear" ...
 ##   .. .. ..$ snowfallAmount     : num [1:10] 0 0 0 0 0 0 0 0 0 0
-##   .. .. ..$ windDirection      : int [1:10] 167 261 120 100 229 232 218 91 62 106
-##   .. .. ..$ windSpeed          : num [1:10] 7.14 9.48 7.9 6.83 9.42 ...
+##   .. .. ..$ windDirection      : int [1:10] 274 124 97 221 240 222 91 129 229 198
+##   .. .. ..$ windSpeed          : num [1:10] 9.34 8.94 6.87 10.95 13.43 ...
 ##   .. ..$ overnightForecast  :'data.frame':   10 obs. of  11 variables:
-##   .. .. ..$ forecastStart      : POSIXct[1:10], format: "2022-07-07 23:00:00" "2022-07-08 23:00:00" "2022-07-09 23:00:00" "2022-07-10 23:00:00" ...
-##   .. .. ..$ forecastEnd        : POSIXct[1:10], format: "2022-07-08 11:00:00" "2022-07-09 11:00:00" "2022-07-10 11:00:00" "2022-07-11 11:00:00" ...
-##   .. .. ..$ cloudCover         : num [1:10] 0.54 0.6 0.15 0.35 0.54 0.5 0.77 0.84 0.55 0.93
-##   .. .. ..$ conditionCode      : chr [1:10] "PartlyCloudy" "PartlyCloudy" "MostlyClear" "MostlyClear" ...
-##   .. .. ..$ humidity           : num [1:10] 0.77 0.77 0.71 0.74 0.7 0.83 0.83 0.83 0.83 0.82
-##   .. .. ..$ precipitationAmount: num [1:10] 0.03 0.05 0 0 0 ...
-##   .. .. ..$ precipitationChance: num [1:10] 0.04 0.06 0.01 0.02 0.1 0.31 0.25 0.27 0.25 0.15
-##   .. .. ..$ precipitationType  : chr [1:10] "rain" "rain" "clear" "clear" ...
+##   .. .. ..$ forecastStart      : POSIXct[1:10], format: "2022-07-08 23:00:00" "2022-07-09 23:00:00" "2022-07-10 23:00:00" "2022-07-11 23:00:00" ...
+##   .. .. ..$ forecastEnd        : POSIXct[1:10], format: "2022-07-09 11:00:00" "2022-07-10 11:00:00" "2022-07-11 11:00:00" "2022-07-12 11:00:00" ...
+##   .. .. ..$ cloudCover         : num [1:10] 0.41 0.09 0.24 0.38 0.42 0.54 0.83 0.14 0.53 0.91
+##   .. .. ..$ conditionCode      : chr [1:10] "PartlyCloudy" "Clear" "MostlyClear" "PartlyCloudy" ...
+##   .. .. ..$ humidity           : num [1:10] 0.75 0.73 0.75 0.68 0.83 0.82 0.84 0.77 0.74 0.84
+##   .. .. ..$ precipitationAmount: num [1:10] 0 0 0 0 1.33 0.66 0.3 0 1.54 0.02
+##   .. .. ..$ precipitationChance: num [1:10] 0 0.01 0 0.1 0.33 0.34 0.29 0.09 0.14 0.29
+##   .. .. ..$ precipitationType  : chr [1:10] "clear" "clear" "clear" "clear" ...
 ##   .. .. ..$ snowfallAmount     : num [1:10] 0 0 0 0 0 0 0 0 0 0
-##   .. .. ..$ windDirection      : int [1:10] 194 340 343 222 218 242 277 346 18 205
-##   .. .. ..$ windSpeed          : num [1:10] 10.23 7.04 6.69 5.59 10.47 ...
+##   .. .. ..$ windDirection      : int [1:10] 335 333 213 215 234 18 32 271 206 216
+##   .. .. ..$ windSpeed          : num [1:10] 7.83 6.46 6.53 12.27 8.08 ...
 ##   .. ..$ restOfDayForecast  :'data.frame':   10 obs. of  11 variables:
-##   .. .. ..$ forecastStart      : POSIXct[1:10], format: "2022-07-07 16:30:36" NA NA NA ...
-##   .. .. ..$ forecastEnd        : POSIXct[1:10], format: "2022-07-08 04:00:00" NA NA NA ...
-##   .. .. ..$ cloudCover         : num [1:10] 0.58 NA NA NA NA NA NA NA NA NA
-##   .. .. ..$ conditionCode      : chr [1:10] "PartlyCloudy" NA NA NA ...
-##   .. .. ..$ humidity           : num [1:10] 0.61 NA NA NA NA NA NA NA NA NA
-##   .. .. ..$ precipitationAmount: num [1:10] 0.03 NA NA NA NA NA NA NA NA NA
-##   .. .. ..$ precipitationChance: num [1:10] 0.02 NA NA NA NA NA NA NA NA NA
-##   .. .. ..$ precipitationType  : chr [1:10] "rain" NA NA NA ...
+##   .. .. ..$ forecastStart      : POSIXct[1:10], format: "2022-07-08 15:40:09" NA NA NA ...
+##   .. .. ..$ forecastEnd        : POSIXct[1:10], format: "2022-07-09 04:00:00" NA NA NA ...
+##   .. .. ..$ cloudCover         : num [1:10] 0.69 NA NA NA NA NA NA NA NA NA
+##   .. .. ..$ conditionCode      : chr [1:10] "MostlyCloudy" NA NA NA ...
+##   .. .. ..$ humidity           : num [1:10] 0.54 NA NA NA NA NA NA NA NA NA
+##   .. .. ..$ precipitationAmount: num [1:10] 0 NA NA NA NA NA NA NA NA NA
+##   .. .. ..$ precipitationChance: num [1:10] 0.03 NA NA NA NA NA NA NA NA NA
+##   .. .. ..$ precipitationType  : chr [1:10] "clear" NA NA NA ...
 ##   .. .. ..$ snowfallAmount     : num [1:10] 0 NA NA NA NA NA NA NA NA NA
-##   .. .. ..$ windDirection      : int [1:10] 170 NA NA NA NA NA NA NA NA NA
-##   .. .. ..$ windSpeed          : num [1:10] 10.8 NA NA NA NA ...
+##   .. .. ..$ windDirection      : int [1:10] 296 NA NA NA NA NA NA NA NA NA
+##   .. .. ..$ windSpeed          : num [1:10] 10.1 NA NA NA NA ...
 ##  $ forecastHourly  :List of 3
 ##   ..$ name    : chr "HourlyForecast"
 ##   ..$ metadata:List of 8
 ##   .. ..$ attributionURL: chr "https://weather-data.apple.com/legal-attribution.html"
-##   .. ..$ expireTime    : POSIXct[1:1], format: "2022-07-07 17:30:36"
+##   .. ..$ expireTime    : POSIXct[1:1], format: "2022-07-08 16:40:09"
 ##   .. ..$ latitude      : num 43.3
 ##   .. ..$ longitude     : num -70.9
-##   .. ..$ readTime      : POSIXct[1:1], format: "2022-07-07 16:30:36"
-##   .. ..$ reportedTime  : POSIXct[1:1], format: "2022-07-07 15:02:19"
+##   .. ..$ readTime      : POSIXct[1:1], format: "2022-07-08 15:40:09"
+##   .. ..$ reportedTime  : POSIXct[1:1], format: "2022-07-08 13:58:20"
 ##   .. ..$ units         : chr "m"
 ##   .. ..$ version       : int 1
 ##   ..$ hours   :'data.frame': 243 obs. of  20 variables:
-##   .. ..$ forecastStart         : POSIXct[1:243], format: "2022-07-07 02:00:00" "2022-07-07 03:00:00" "2022-07-07 04:00:00" "2022-07-07 05:00:00" ...
-##   .. ..$ cloudCover            : num [1:243] 0.01 0 0.02 0.3 0.43 0.72 0.31 1 0.95 0.91 ...
-##   .. ..$ conditionCode         : chr [1:243] "Clear" "Clear" "Clear" "MostlyClear" ...
+##   .. ..$ forecastStart         : POSIXct[1:243], format: "2022-07-08 02:00:00" "2022-07-08 03:00:00" "2022-07-08 04:00:00" "2022-07-08 05:00:00" ...
+##   .. ..$ cloudCover            : num [1:243] 0.08 0.03 0.01 0.02 0.15 0.8 0.81 0.01 0.05 0.04 ...
+##   .. ..$ conditionCode         : chr [1:243] "Clear" "Clear" "Clear" "Clear" ...
 ##   .. ..$ daylight              : logi [1:243] FALSE FALSE FALSE FALSE FALSE FALSE ...
-##   .. ..$ humidity              : num [1:243] 0.74 0.78 0.81 0.83 0.87 0.89 0.9 0.92 0.9 0.87 ...
+##   .. ..$ humidity              : num [1:243] 0.77 0.75 0.75 0.77 0.78 0.8 0.83 0.84 0.86 0.83 ...
 ##   .. ..$ precipitationAmount   : num [1:243] 0 0 0 0 0 0 0 0 0 0 ...
 ##   .. ..$ precipitationIntensity: num [1:243] 0 0 0 0 0 0 0 0 0 0 ...
 ##   .. ..$ precipitationChance   : num [1:243] 0 0 0 0 0 0 0 0 0 0 ...
 ##   .. ..$ precipitationType     : chr [1:243] "clear" "clear" "clear" "clear" ...
-##   .. ..$ pressure              : num [1:243] 1014 1015 1016 1016 1016 ...
-##   .. ..$ pressureTrend         : chr [1:243] "rising" "rising" "rising" "rising" ...
+##   .. ..$ pressure              : num [1:243] 1015 1015 1015 1015 1015 ...
+##   .. ..$ pressureTrend         : chr [1:243] "steady" "steady" "steady" "steady" ...
 ##   .. ..$ snowfallIntensity     : num [1:243] 0 0 0 0 0 0 0 0 0 0 ...
-##   .. ..$ temperature           : num [1:243] 18.3 17 16.2 15.7 14.8 ...
-##   .. ..$ temperatureApparent   : num [1:243] 18.2 16.8 16.1 15.5 14.7 ...
-##   .. ..$ temperatureDewPoint   : num [1:243] 13.6 13.1 12.9 12.8 12.6 ...
+##   .. ..$ temperature           : num [1:243] 19.3 19 18.4 17.7 17.1 ...
+##   .. ..$ temperatureApparent   : num [1:243] 19.6 19.1 18.4 17.7 17 ...
+##   .. ..$ temperatureDewPoint   : num [1:243] 15.2 14.4 13.9 13.7 13.3 ...
 ##   .. ..$ uvIndex               : int [1:243] 0 0 0 0 0 0 0 0 0 1 ...
-##   .. ..$ visibility            : num [1:243] 27974 25936 24465 23639 23264 ...
-##   .. ..$ windDirection         : int [1:243] 315 303 315 307 309 298 308 317 310 310 ...
-##   .. ..$ windGust              : num [1:243] 2.93 2.49 2.88 3.17 3.31 3.05 3.45 2.4 1.69 2.76 ...
-##   .. ..$ windSpeed             : num [1:243] 2.93 2.49 2.88 3.17 3.31 3.05 3.45 2.4 1.69 0.72 ...
+##   .. ..$ visibility            : num [1:243] 25565 26786 26538 27176 27150 ...
+##   .. ..$ windDirection         : int [1:243] 160 186 179 170 167 166 171 174 177 217 ...
+##   .. ..$ windGust              : num [1:243] 3.12 3.42 2.33 3.94 2.42 1.32 4.18 1.75 1.64 2.45 ...
+##   .. ..$ windSpeed             : num [1:243] 3.12 2.3 0.83 1.85 1.02 0.43 2.6 1.75 0.72 1.27 ...
 ##  $ forecastNextHour:List of 6
 ##   ..$ name         : chr "NextHourForecast"
 ##   ..$ metadata     :List of 9
 ##   .. ..$ attributionURL: chr "https://weather-data.apple.com/legal-attribution.html"
-##   .. ..$ expireTime    : POSIXct[1:1], format: "2022-07-07 17:30:36"
+##   .. ..$ expireTime    : POSIXct[1:1], format: "2022-07-08 17:40:09"
 ##   .. ..$ language      : chr "en-US"
 ##   .. ..$ latitude      : num 43.3
 ##   .. ..$ longitude     : num -70.9
 ##   .. ..$ providerName  : chr "US National Weather Service"
-##   .. ..$ readTime      : POSIXct[1:1], format: "2022-07-07 16:30:36"
+##   .. ..$ readTime      : POSIXct[1:1], format: "2022-07-08 15:40:09"
 ##   .. ..$ units         : chr "m"
 ##   .. ..$ version       : int 1
 ##   ..$ summary      :'data.frame':    1 obs. of  4 variables:
-##   .. ..$ startTime             : POSIXct[1:1], format: "2022-07-07 16:31:00"
+##   .. ..$ startTime             : POSIXct[1:1], format: "2022-07-08 15:41:00"
 ##   .. ..$ condition             : chr "clear"
 ##   .. ..$ precipitationChance   : num 0
 ##   .. ..$ precipitationIntensity: num 0
-##   ..$ forecastStart: POSIXct[1:1], format: "2022-07-07 16:31:00"
-##   ..$ forecastEnd  : POSIXct[1:1], format: "2022-07-07 17:49:00"
-##   ..$ minutes      :'data.frame':    78 obs. of  3 variables:
-##   .. ..$ startTime             : POSIXct[1:78], format: "2022-07-07 16:31:00" "2022-07-07 16:32:00" "2022-07-07 16:33:00" "2022-07-07 16:34:00" ...
-##   .. ..$ precipitationChance   : num [1:78] 0 0 0 0 0 0 0 0 0 0 ...
-##   .. ..$ precipitationIntensity: num [1:78] 0 0 0 0 0 0 0 0 0 0 ...
+##   ..$ forecastStart: POSIXct[1:1], format: "2022-07-08 15:41:00"
+##   ..$ forecastEnd  : POSIXct[1:1], format: "2022-07-08 16:57:00"
+##   ..$ minutes      :'data.frame':    76 obs. of  3 variables:
+##   .. ..$ startTime             : POSIXct[1:76], format: "2022-07-08 15:41:00" "2022-07-08 15:42:00" "2022-07-08 15:43:00" "2022-07-08 15:44:00" ...
+##   .. ..$ precipitationChance   : num [1:76] 0 0 0 0 0 0 0 0 0 0 ...
+##   .. ..$ precipitationIntensity: num [1:76] 0 0 0 0 0 0 0 0 0 0 ...
 ```
 
 ``` r
 current_conditions(wx)
-##  Weather for (43.268, -70.864) as of 2022-07-07 12:30:36
+##  Weather daily forecast for (43.268, -70.864) as of 2022-07-08 11:40:09
 ## 
-##  Conditions: Partly Cloudy
-## Temperature: 76.62°F
-##  Feels like: 76.66°F
-##   Dew Point: 57.36°F
-##        Wind: 4.4 mph (S)
-##    Pressure: 1016.77 mb (falling)
-##  Visibility: 20 miles
-##    UV Index: 🟧 6 (High)
+##  Conditions: Mostly Clear
+## Temperature: 80.73°F
+##  Feels like: 81.88°F
+##   Dew Point: 61.57°F
+##        Wind: 7.4 mph (W)
+##    Pressure: 1013.42 mb (falling)
+##  Visibility: 21 miles
+##    UV Index: 🟧 7 (High)
 ## 
 ## https://weather-data.apple.com/legal-attribution.html
 ```
 
 ``` r
 hourly_forecast(wx)
-##  Weather forecast for (43.268, -70.864) as of 2022-07-07 12:30:36
+##  Weather daily forecast for (43.268, -70.864) as of 2022-07-08 11:40:09
 ## 
-## Today @ 13:00 │ 🌡 78°F │ 💦 51% │ 1016 mb ↓ │ 😎 │ Partly Cloudy │ 🟧
-##       @ 14:00 │ 🌡 79°F │ 💦 49% │ 1016 mb ↓ │ 😎 │ Partly Cloudy │ 🟧
-##       @ 15:00 │ 🌡 78°F │ 💦 51% │ 1016 mb ↓ │ 😎 │ Mostly Cloudy │ 🟨
-##       @ 16:00 │ 🌡 78°F │ 💦 53% │ 1015 mb ↓ │ 😎 │ Mostly Cloudy │ 🟨
-##       @ 17:00 │ 🌡 76°F │ 💦 56% │ 1015 mb ↓ │ 😎 │ Partly Cloudy │ 🟩
-##       @ 18:00 │ 🌡 75°F │ 💦 60% │ 1015 mb — │ 😎 │ Partly Cloudy │ 🟩
-##       @ 19:00 │ 🌡 73°F │ 💦 62% │ 1015 mb — │ 😎 │ Mostly Clear  │ 🟩
-##       @ 20:00 │ 🌡 71°F │ 💦 67% │ 1015 mb — │ 😎 │ Partly Cloudy │ 🟩
-##       @ 21:00 │ 🌡 69°F │ 💦 70% │ 1015 mb — │ 🌕 │ Partly Cloudy │ 🟩
-##       @ 22:00 │ 🌡 68°F │ 💦 72% │ 1015 mb — │ 🌕 │ Mostly Cloudy │ 🟩
-##       @ 23:00 │ 🌡 68°F │ 💦 72% │ 1015 mb — │ 🌕 │ Mostly Cloudy │ 🟩
-##   Fri @ 00:00 │ 🌡 67°F │ 💦 75% │ 1015 mb — │ 🌕 │ Mostly Cloudy │ 🟩
-##       @ 01:00 │ 🌡 66°F │ 💦 78% │ 1015 mb — │ 🌕 │ Mostly Cloudy │ 🟩
-##       @ 02:00 │ 🌡 64°F │ 💦 80% │ 1015 mb — │ 🌕 │ Partly Cloudy │ 🟩
-##       @ 03:00 │ 🌡 64°F │ 💦 83% │ 1015 mb — │ 🌕 │ Partly Cloudy │ 🟩
-##       @ 04:00 │ 🌡 62°F │ 💦 84% │ 1015 mb — │ 🌕 │ Partly Cloudy │ 🟩
-##       @ 05:00 │ 🌡 62°F │ 💦 86% │ 1015 mb — │ 🌕 │ Partly Cloudy │ 🟩
-##       @ 06:00 │ 🌡 62°F │ 💦 87% │ 1015 mb — │ 😎 │ Mostly Clear  │ 🟩
-##       @ 07:00 │ 🌡 65°F │ 💦 84% │ 1015 mb — │ 😎 │ Mostly Clear  │ 🟩
-##       @ 08:00 │ 🌡 69°F │ 💦 79% │ 1015 mb — │ 😎 │ Mostly Clear  │ 🟩
+## Today @ 12:00 │ 🌡 81°F │ 💦 51% │ 1013 mb ↓ │ 😎 │ Partly Cloudy │ 🟧
+##       @ 13:00 │ 🌡 83°F │ 💦 47% │ 1013 mb ↓ │ 😎 │ Mostly Cloudy │ 🟧
+##       @ 14:00 │ 🌡 84°F │ 💦 45% │ 1012 mb ↓ │ 😎 │ Mostly Cloudy │ 🟨
+##       @ 15:00 │ 🌡 83°F │ 💦 47% │ 1012 mb ↓ │ 😎 │ Mostly Cloudy │ 🟨
+##       @ 16:00 │ 🌡 83°F │ 💦 47% │ 1012 mb ↓ │ 😎 │ Mostly Cloudy │ 🟨
+##       @ 17:00 │ 🌡 82°F │ 💦 47% │ 1012 mb — │ 😎 │ Mostly Cloudy │ 🟩
+##       @ 18:00 │ 🌡 81°F │ 💦 49% │ 1012 mb — │ 😎 │ Mostly Cloudy │ 🟩
+##       @ 19:00 │ 🌡 79°F │ 💦 53% │ 1012 mb — │ 😎 │ Partly Cloudy │ 🟩
+##       @ 20:00 │ 🌡 76°F │ 💦 58% │ 1013 mb ↑ │ 😎 │ Mostly Cloudy │ 🟩
+##       @ 21:00 │ 🌡 73°F │ 💦 62% │ 1013 mb ↑ │ 🌕 │ Mostly Cloudy │ 🟩
+##       @ 22:00 │ 🌡 70°F │ 💦 66% │ 1014 mb ↑ │ 🌕 │ Mostly Cloudy │ 🟩
+##       @ 23:00 │ 🌡 69°F │ 💦 70% │ 1014 mb ↑ │ 🌕 │ Partly Cloudy │ 🟩
+##   Sat @ 00:00 │ 🌡 67°F │ 💦 73% │ 1015 mb ↑ │ 🌕 │ Partly Cloudy │ 🟩
+##       @ 01:00 │ 🌡 65°F │ 💦 77% │ 1015 mb ↑ │ 🌕 │ Partly Cloudy │ 🟩
+##       @ 02:00 │ 🌡 63°F │ 💦 81% │ 1015 mb ↑ │ 🌕 │ Mostly Clear  │ 🟩
+##       @ 03:00 │ 🌡 62°F │ 💦 84% │ 1015 mb ↑ │ 🌕 │ Mostly Clear  │ 🟩
+##       @ 04:00 │ 🌡 60°F │ 💦 86% │ 1016 mb — │ 🌕 │ Mostly Clear  │ 🟩
+##       @ 05:00 │ 🌡 59°F │ 💦 87% │ 1016 mb ↑ │ 🌕 │ Mostly Clear  │ 🟩
+##       @ 06:00 │ 🌡 60°F │ 💦 86% │ 1017 mb ↑ │ 😎 │ Mostly Clear  │ 🟩
+##       @ 07:00 │ 🌡 63°F │ 💦 81% │ 1017 mb ↑ │ 😎 │ Mostly Clear  │ 🟩
 ## 
 ## https://weather-data.apple.com/legal-attribution.html
 ```
 
 ``` r
 daily_forecast(wx)
-##  Weather daily forecast for (43.268, -70.864) as of 2022-07-07 12:30:36
+##  Weather daily forecast for (43.268, -70.864) as of 2022-07-08 11:40:09
 ## 
-## Today 57° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 79° 🟧 Partly Cloudy
-##   Fri 62° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 84° 🟧 Partly Cloudy
-##   Sat 59° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 76° 🟧 Mostly Clear 
-##   Sun 54° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 78° 🟥 Mostly Clear 
-##   Mon 54° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 84° 🟧 Partly Cloudy
-##   Tue 65° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 87° 🟧 Rain         
-##   Wed 67° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 84° 🟧 Drizzle      
-##   Thu 66° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 78° 🟨 Drizzle      
-##   Fri 64° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 80° 🟨 Rain         
-##   Sat 62° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 80° 🟨 Mostly Cloudy
+## Today 60° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 84° 🟧 Partly Cloudy
+##   Sat 59° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 77° 🟧 Mostly Clear 
+##   Sun 53° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 78° 🟥 Clear        
+##   Mon 54° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 84° 🟧 Mostly Clear 
+##   Tue 66° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 88° 🟧 Drizzle      
+##   Wed 66° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 83° 🟧 Drizzle      
+##   Thu 64° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 78° 🟧 Drizzle      
+##   Fri 61° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 77° 🟨 Drizzle      
+##   Sat 60° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 81° 🟧 Partly Cloudy
+##   Sun 64° ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ 83° 🟧 Drizzle      
 ## 
 ## https://weather-data.apple.com/legal-attribution.html
 ```
@@ -396,13 +397,13 @@ xdf |>
 
 ## weatherkit Metrics
 
-| Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
-|:-----|---------:|-----:|----:|-----:|------------:|-----:|---------:|-----:|
-| R    |       20 | 0.40 | 566 | 0.29 |         193 | 0.34 |      411 | 0.41 |
-| HTML |        1 | 0.02 | 306 | 0.16 |          35 | 0.06 |        2 | 0.00 |
-| Rmd  |        2 | 0.04 |  69 | 0.04 |          45 | 0.08 |       81 | 0.08 |
-| YAML |        2 | 0.04 |  35 | 0.02 |          10 | 0.02 |        2 | 0.00 |
-| SUM  |       25 | 0.50 | 976 | 0.50 |         283 | 0.50 |      496 | 0.50 |
+| Lang | \# Files |  (%) |  LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
+|:-----|---------:|-----:|-----:|-----:|------------:|-----:|---------:|-----:|
+| R    |       21 | 0.40 |  595 | 0.30 |         203 | 0.35 |      443 | 0.42 |
+| HTML |        1 | 0.02 |  306 | 0.15 |          35 | 0.06 |        2 | 0.00 |
+| Rmd  |        2 | 0.04 |   69 | 0.03 |          45 | 0.08 |       81 | 0.08 |
+| YAML |        2 | 0.04 |   35 | 0.02 |          10 | 0.02 |        2 | 0.00 |
+| SUM  |       26 | 0.50 | 1005 | 0.50 |         293 | 0.50 |      528 | 0.50 |
 
 clock Package Metrics for weatherkit
 

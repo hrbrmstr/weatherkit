@@ -22,7 +22,8 @@ License: MIT + file LICENSE
 Suggests:
     knitr,
     rmarkdown,
-    tinytest
+    tinytest,
+    argparser
 Depends:
     R (>= 4.0.0)
 Imports:
