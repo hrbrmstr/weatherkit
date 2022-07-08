@@ -25,6 +25,7 @@ p <- add_argument(p, "--lat", help = "decimal latitude (e.g. 43.2683199, the def
 p <- add_argument(p, "--lon", help = "decimal longitude (e.g. -70.8635506, the default)", type = "numeric", default = -70.8635506)
 p <- add_argument(p, "--lang", help = "language (e.g. 'en', the default)", type = "character", default = "en")
 p <- add_argument(p, "--iso2c", help = "ISO 2-char country code (e.g. 'US', the default)", type = "character", default = "US")
+p <- add_argument(p, "--metric", help = "Enable metric values (not the default)", type = "logical", flag = TRUE)
 
 argv <- parse_args(p)
 
@@ -60,15 +61,15 @@ cat(
   sep = ""
 )
 
-current_conditions(wx, incl_legal = FALSE)
+current_conditions(wx, metric = argv$metric, incl_legal = FALSE)
 
 cat("\n", sep="")
 
-hourly_forecast(wx, incl_legal = FALSE)
+hourly_forecast(wx, metric = argv$metric, incl_legal = FALSE)
 
 cat("\n", sep="")
 
-daily_forecast(wx, incl_legal = FALSE)
+daily_forecast(wx, metric = argv$metric, incl_legal = FALSE)
 
 cat("\n", sep="")
 
