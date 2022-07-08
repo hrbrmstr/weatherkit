@@ -37,6 +37,18 @@ wx_tidy(
   )
 ) -> wx
 
+lutz::tz_lookup_coords(
+  lat = wx$forecastDaily$metadata$latitude,
+  lon = wx$forecastDaily$metadata$longitude,
+  method = "fast",
+  warn = FALSE
+) -> tzone
+
+with_tz(
+  time = wx$currentWeather$asOf,
+  tzone = tzone
+) -> wx$currentWeather$asOf
+
 cat(
   paste0(
     apple_weather_trademark,
