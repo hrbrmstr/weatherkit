@@ -4,7 +4,7 @@
 #' location. You likely want to specify `wx`.
 #'
 #' @param wx an object retrieved by [wxkit_weather()] and pre-tidied with [wx_tidy()]
-#' @param n_hours how many hours to forecast ahead? Default is `12` hours
+#' @param n_hours how many hours to forecast ahead? Default is `20` hours
 #' @param tzone if not specified, this function will use [lutz::tz_lookup_coords()]
 #'       "fast" method on the `forecastHourly$metadata` `latitude` and `longitude` values
 #'       to guess the timezone.
@@ -12,7 +12,7 @@
 #' @param incl_legal if `FALSE` (default is `TRUE`) do not include Apple's required legal bits
 #' @return nothing (side effect is printing to stdout)
 #' @export
-hourly_forecast <- function(wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506)), n_hours = 12, tzone, metric = FALSE, incl_legal = TRUE) {
+hourly_forecast <- function(wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506)), n_hours = 20, tzone, metric = FALSE, incl_legal = TRUE) {
 
   if (missing(tzone)) {
 
@@ -46,7 +46,7 @@ hourly_forecast <- function(wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506))
         "pressure", "pressureTrend", "temperature", "uvIndex"
       )
     ],
-    n = 20
+    n = n_hours
   ) -> display_hrs
 
   metric <- FALSE
