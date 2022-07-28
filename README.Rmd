@@ -68,6 +68,50 @@ hourly_forecast(wx)
 daily_forecast(wx)
 ```
 
+```{r wx-alerts, eval=FALSE}
+# weatherAlerts structure
+
+List of 4
+ $ name      : chr "WeatherAlertCollection"
+ $ metadata  :List of 9
+ $ detailsUrl: chr "https://weather-data.apple.com/alertDetails/index.html?ids=55f14171-c72f-5340-8003-9b51e52d14e5&lang=en-US&time"| __truncated__
+ $ alerts    :'data.frame':     1 obs. of  18 variables:
+> str(y$weatherAlerts)
+List of 4
+ $ name      : chr "WeatherAlertCollection"
+ $ metadata  :List of 9
+  ..$ attributionURL: chr "https://weather-data.apple.com/legal-attribution.html"
+  ..$ expireTime    : chr "2022-07-28T18:13:02Z"
+  ..$ language      : chr "en-US"
+  ..$ latitude      : num 43.3
+  ..$ longitude     : num -70.9
+  ..$ providerName  : chr "National Weather Service"
+  ..$ readTime      : chr "2022-07-28T18:08:02Z"
+  ..$ reportedTime  : chr "2022-07-28T18:08:02Z"
+  ..$ version       : int 1
+ $ detailsUrl: chr "https://weather-data.apple.com/alertDetails/index.html?ids=55f14171-c72f-5340-8003-9b51e52d14e5&lang=en-US&time"| __truncated__
+ $ alerts    :'data.frame':     1 obs. of  18 variables:
+  ..$ name         : chr "WeatherAlertSummary"
+  ..$ id           : chr "55f14171-c72f-5340-8003-9b51e52d14e5"
+  ..$ areaId       : chr "mez018"
+  ..$ areaName     : chr "Interior York"
+  ..$ countryCode  : chr "US"
+  ..$ description  : chr "Special Weather Statement"
+  ..$ effectiveTime: chr "2022-07-28T17:42:00Z"
+  ..$ expireTime   : chr "2022-07-28T19:00:00Z"
+  ..$ issuedTime   : chr "2022-07-28T17:42:00Z"
+  ..$ detailsUrl   : chr "https://weather-data.apple.com/alertDetails/index.html?ids=55f14171-c72f-5340-8003-9b51e52d14e5&lang=en-US&time"| __truncated__
+  ..$ precedence   : int 0
+  ..$ severity     : chr "minor"
+  ..$ source       : chr "National Weather Service"
+  ..$ eventSource  : chr "US"
+  ..$ urgency      : chr "expected"
+  ..$ certainty    : chr "observed"
+  ..$ importance   : chr "low"
+  ..$ responses    :List of 1
+  .. ..$ : list()
+```
+
 ```{r temps, dev="ragg_png", fig.width=800/96, fig.height=500/96}
 library(ggtext)
 library(ggforce)

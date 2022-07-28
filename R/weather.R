@@ -18,6 +18,7 @@
 #' @param auth See [wxkit_auth()]
 #' @param references <https://developer.apple.com/documentation/weatherkitrestapi/get_api_v1_weather_language_latitude_longitude>
 #' @export
+#' @note If you want weather alerts, you MUST populate the `countryCode` parameter as well as ensure `weatherAlerts` is in `dataSets`
 #' @examples
 #' wxkit_weather(43.2683199, -70.8635506)
 wxkit_weather <- function(latitude, longitude,
@@ -47,6 +48,7 @@ wxkit_weather <- function(latitude, longitude,
       timezone = timezone[1],
       dataSets = paste0(dataSets, collapse=","),
       countryCode = countryCode[1],
+      country= countryCode[1],
       currentAsOf = currentAsOf[1],
       dailyEnd = dailyEnd[1],
       dailyStart = dailyStart[1],

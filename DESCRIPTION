@@ -1,7 +1,7 @@
 Package: weatherkit
 Type: Package
 Title: Obtain Historical, Current, and Predictive Weather Data
-Version: 0.1.0
+Version: 0.2.0
 Date: 2022-07-03
 Authors@R: c(
     person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
