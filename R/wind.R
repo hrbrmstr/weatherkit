@@ -1,4 +1,6 @@
-#' Converts wind direction angle to the corresponding value of the 16-wind compass rose composed of the cardinal directions—north, east, south, and west—and its intercardinal directions
+#' Converts wind direction angle to the corresponding value of the 16-wind 
+#' compass rose composed of the cardinal directions—north, east, south, and 
+#' west—and its intercardinal directions
 #'
 #' @param wind_direction wind direction angle
 #' @export
@@ -13,7 +15,11 @@ wind_direction_label <- function(wind_direction) {
     "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"
   ) -> wind_labels
 
-  wind_labels[as.integer(((as.double(wind_direction[1]) + 11.25) %% 360.0) / 22.5) + 1]
+  wind_labels[
+    as.integer(
+      ((as.double(wind_direction[1]) + 11.25) %% 360.0) / 22.5
+    ) + 1
+  ]
 
 }
 

@@ -74,5 +74,7 @@ wxkit_weather <- function(latitude, longitude,
 
   jsonlite::fromJSON(out)
 
+  out
+
 }
 
