@@ -2,7 +2,9 @@
 % Please edit documentation in R/wind.R
 \name{wind_direction_label}
 \alias{wind_direction_label}
-\title{Converts wind direction angle to the corresponding value of the 16-wind compass rose composed of the cardinal directions—north, east, south, and west—and its intercardinal directions}
+\title{Converts wind direction angle to the corresponding value of the 16-wind
+compass rose composed of the cardinal directions—north, east, south, and
+west—and its intercardinal directions}
 \usage{
 wind_direction_label(wind_direction)
 }
@@ -13,7 +15,9 @@ wind_direction_label(wind_direction)
 length 1 character vector
 }
 \description{
-Converts wind direction angle to the corresponding value of the 16-wind compass rose composed of the cardinal directions—north, east, south, and west—and its intercardinal directions
+Converts wind direction angle to the corresponding value of the 16-wind
+compass rose composed of the cardinal directions—north, east, south, and
+west—and its intercardinal directions
 }
 \examples{
 wx <- wxkit_weather(43.2683199, -70.8635506)

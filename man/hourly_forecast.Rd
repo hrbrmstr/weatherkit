@@ -6,7 +6,7 @@
 \usage{
 hourly_forecast(
   wx = wx_tidy(wxkit_weather(43.2683199, -70.8635506)),
-  n_hours = 12,
+  n_hours = 20,
   tzone,
   metric = FALSE,
   incl_legal = TRUE
@@ -15,7 +15,7 @@ hourly_forecast(
 \arguments{
 \item{wx}{an object retrieved by \code{\link[=wxkit_weather]{wxkit_weather()}} and pre-tidied with \code{\link[=wx_tidy]{wx_tidy()}}}
 
-\item{n_hours}{how many hours to forecast ahead? Default is \code{12} hours}
+\item{n_hours}{how many hours to forecast ahead? Default is \code{20} hours}
 
 \item{tzone}{if not specified, this function will use \code{\link[lutz:tz_lookup_coords]{lutz::tz_lookup_coords()}}
 "fast" method on the \code{forecastHourly$metadata} \code{latitude} and \code{longitude} values

@@ -1,8 +1,8 @@
 Package: weatherkit
 Type: Package
 Title: Obtain Historical, Current, and Predictive Weather Data
-Version: 0.2.0
-Date: 2022-07-03
+Version: 0.2.1
+Date: 2022-07-05
 Authors@R: c(
     person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
            comment = c(ORCID = "0000-0001-5670-2640")),
@@ -39,5 +39,5 @@ Imports:
     scales,
     cli
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 VignetteBuilder: knitr

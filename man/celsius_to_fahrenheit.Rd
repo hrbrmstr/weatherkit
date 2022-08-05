@@ -22,6 +22,11 @@ double
 \code{celsius.to.fahrenheit} creates a numeric vector of temperatures in
    Fahrenheit from a numeric vector of temperatures in Celsius.
 }
+\note{
+Equations are from the source code for the US National Weather
+    Service's
+    \href{http://www.wpc.ncep.noaa.gov/html/heatindex.shtml}{online heat index calculator}.
+}
 \examples{
 # Convert from Celsius to Fahrenheit.
 data(lyon)

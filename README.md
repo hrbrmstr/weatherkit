@@ -409,13 +409,13 @@ xdf |>
   ) +
   scale_x_continuous(
     name = NULL,
-    label = \(x) sprintf("%s°F", x),
+    label = function(x) sprintf("%s°F", x),
     sec.axis = dup_axis()
   ) +
   scale_y_reverse(
     name = NULL,
     breaks = seq_rng(xdf$y),
-    labels = \(x) {
+    labels = function(x) {
       x <- as.Date(x, origin="1970-01-01")
       ifelse(x == Sys.Date(), "Today", strftime(x, "%a"))
     },

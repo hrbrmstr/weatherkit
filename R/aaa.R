@@ -6,7 +6,7 @@ httr::user_agent(
   )
 ) -> .WEATHERKIT_UA
 
-set_names <- \(object = nm, nm)  {
+set_names <- function(object = nm, nm)  {
   names(object) <- nm
   object
 }

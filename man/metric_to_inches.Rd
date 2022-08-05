@@ -26,6 +26,10 @@ double
   inches from a numeric vector of precipitation in common metric units
   (millimeters or centimeters).
 }
+\note{
+Equations are from the source code for the National Weather Service
+   Forecast Office \url{http://www.srh.noaa.gov/ama/?n=conversions}
+}
 \examples{
 data(loveland)
 loveland$Precip.in <- metric_to_inches(loveland$Precip.mm,

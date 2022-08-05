@@ -33,6 +33,11 @@ Dew point temperature will be calculated in the same metric as
     use the function \code{\link[weathermetrics]{celsius.to.fahrenheit}} or
     \code{\link[weathermetrics]{fahrenheit.to.celsius}} on the output from this function.
 }
+\note{
+Equations are from the source code for the US National Weather
+    Service's
+    \href{http://www.wpc.ncep.noaa.gov/html/heatindex.shtml}{online heat index calculator}.
+}
 \examples{
 # Calculate dew point temperature from relative humidity and
 # air temperature.

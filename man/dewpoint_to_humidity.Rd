@@ -31,6 +31,11 @@ Dew point temperature and temperature must be in the same
    necessary, use \code{\link[weathermetrics]{convert_temperature}} to convert before
    using this function.
 }
+\note{
+Equations are from the source code for the US National Weather
+    Service's
+    \href{http://www.wpc.ncep.noaa.gov/html/heatindex.shtml}{online heat index calculator}.
+}
 \examples{
 # Calculate relative humidity from air temperature and
 # dew point temperature.

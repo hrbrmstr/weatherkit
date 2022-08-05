@@ -18,6 +18,7 @@ wxkit_weather(
   hourlyEnd = NULL,
   hourlyStart = NULL,
   ...,
+  json = FALSE,
   auth = wxkit_auth()
 )
 }
@@ -49,6 +50,8 @@ for the location you are querying data for. Defaults to all possible values.}
 
 \item{...}{passed to calls to \code{{httr}} functions.}
 
+\item{json}{if \code{TRUE} (default: \code{FALSE}), just return the JSON string}
+
 \item{auth}{See \code{\link[=wxkit_auth]{wxkit_auth()}}}
 
 \item{references}{\url{https://developer.apple.com/documentation/weatherkitrestapi/get_api_v1_weather_language_latitude_longitude}}
@@ -56,6 +59,9 @@ for the location you are querying data for. Defaults to all possible values.}
 \description{
 Obtain weather data for the specified location.
 }
+\note{
+If you want weather alerts, you MUST populate the \code{countryCode} parameter as well as ensure \code{weatherAlerts} is in \code{dataSets}
+}
 \examples{
-wxkit_weather(43.2683199, -70.8635506)
+wxkit_weather(43.2683199, -70.8635506, countryCode = "US")
 }

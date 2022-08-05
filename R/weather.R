@@ -15,12 +15,13 @@
 #' @param hourlyEnd OPTIONAL. The time to end the hourly forecast. If this parameter is absent, hourly forecasts run 24 hours or the length of the daily forecast, whichever is longer.
 #' @param hourlyStart OPTIONAL. The time to start the hourly forecast. If this parameter is absent, hourly forecasts start on the current hour.
 #' @param ... passed to calls to `{httr}` functions.
+#' @param json if `TRUE` (default: `FALSE`), just return the JSON string
 #' @param auth See [wxkit_auth()]
 #' @param references <https://developer.apple.com/documentation/weatherkitrestapi/get_api_v1_weather_language_latitude_longitude>
 #' @export
 #' @note If you want weather alerts, you MUST populate the `countryCode` parameter as well as ensure `weatherAlerts` is in `dataSets`
 #' @examples
-#' wxkit_weather(43.2683199, -70.8635506)
+#' wxkit_weather(43.2683199, -70.8635506, countryCode = "US")
 wxkit_weather <- function(latitude, longitude,
                           language = Sys.getenv("LANG"),
                           timezone = Sys.getenv("TZ"),
@@ -32,6 +33,7 @@ wxkit_weather <- function(latitude, longitude,
                           hourlyEnd = NULL,
                           hourlyStart = NULL,
                           ...,
+                          json = FALSE,
                           auth = wxkit_auth()) {
 
   latitude <- latitude[1]
@@ -72,9 +74,7 @@ wxkit_weather <- function(latitude, longitude,
 
   out <- suppressMessages(httr::content(res, as = "text"))
 
-  jsonlite::fromJSON(out)
-
-  out
+  if (json) out else jsonlite::fromJSON(out)
 
 }
 

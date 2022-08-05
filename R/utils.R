@@ -1,6 +1,6 @@
-hasName <- \(x, name) match(name, names(x), nomatch = 0L) > 0L
+hasName <- function(x, name) match(name, names(x), nomatch = 0L) > 0L
 
-sans_ext <- \(x, compression = FALSE) {
+sans_ext <- function(x, compression = FALSE) {
   if (compression)x <- sub("[.](gz|bz2|xz)$", "", x)
   sub("([^.]+)\\.[[:alnum:]]+$", "\\1", x)
 }
@@ -13,8 +13,8 @@ as_posixct_from_utc <- function(x) {
   )
 }
 
-is_posixct <- \(x) inherits(x, "POSIXct")
-is_posixlt <- \(x) inherits(x, "POSIXlt")
+is_posixct <- function(x) inherits(x, "POSIXct")
+is_posixlt <- function(x) inherits(x, "POSIXlt")
 
 #' Get date-time in a different time zone
 #'

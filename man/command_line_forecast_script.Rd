@@ -12,8 +12,10 @@ that you can use to display a current conditions, hourly forecast, and daily
 forecast.
 
 It is highly suggested you alias or shove the following into a script that you
-then run it via:\preformatted{Rscript $(Rscript -e "cat(system.file('scripts', 'wx.R', package='weatherkit'))") --lat 43.2 --lon -70.8 --lang en --iso2c US
-}
+then run it via:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{Rscript $(Rscript -e "cat(system.file('scripts', 'wx.R', package='weatherkit'))") --lat 43.2 --lon -70.8 --lang en --iso2c US
+}\if{html}{\out{</div>}}
 
 The inner call to \code{Rscript} (assuming it is on your \code{PATH}) finds the path to the installed
 script. The second one calls it with set parameters. All parameters default to

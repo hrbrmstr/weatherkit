@@ -30,6 +30,10 @@ A numeric vector of precipitation (in specified metric unit)
   common metric units (millimeters or centimeters) from a numeric vector of
   precipitation in inches.
 }
+\note{
+Equations are from the source code for the National Weather Service
+   Forecast Office \url{http://www.srh.noaa.gov/ama/?n=conversions}
+}
 \examples{
 data(breck)
 breck$Precip.mm <- inches_to_metric(breck$Precip.in,
